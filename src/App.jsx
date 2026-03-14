@@ -1,6 +1,7 @@
 import Layout from './components/Layout';
 import Hero from './components/Hero';
 import ServicesGrid from './components/ServicesGrid';
+import Packages from './components/Packages';
 
 function App() {
   return (
@@ -11,6 +12,11 @@ function App() {
       {/* Services Grid */}
       <div id="services">
         <ServicesGrid />
+      </div>
+
+      {/* Packages */}
+      <div id="packages">
+        <Packages />
       </div>
 
       {/* Packages Preview */}
