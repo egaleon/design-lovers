@@ -8,43 +8,29 @@ import ContactForm from './components/ContactForm';
 function App() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <Hero />
+      {/* Hero Section - Full screen intro */}
+      <section id="home">
+        <Hero />
+      </section>
 
-      {/* Services Grid */}
-      <div id="services">
+      {/* Services Section - Masonry grid of services */}
+      <section id="services">
         <ServicesGrid />
-      </div>
+      </section>
 
-      {/* Packages */}
-      <div id="packages">
+      {/* Packages Section - Pricing cards */}
+      <section id="packages">
         <Packages />
-      </div>
+      </section>
 
-      {/* Gallery */}
-      <div id="gallery">
+      {/* Gallery Section - Masonry photo gallery with lightbox */}
+      <section id="gallery">
         <Gallery />
-      </div>
+      </section>
 
-      {/* Contact Form */}
-      <ContactForm />
-
-      {/* Packages Preview */}
-      <section id="packages" className="py-20 bg-dl-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl text-dl-coffee mb-4">
-            Our Packages
-          </h2>
-          <p className="font-sans text-dl-coffee/70 max-w-xl mx-auto mb-10">
-            Tailored solutions for every occasion and budget
-          </p>
-          <a
-            href="#packages"
-            className="inline-block border-2 border-dl-gold text-dl-gold font-sans text-xs uppercase tracking-widest px-8 py-3 hover:bg-dl-gold hover:text-white transition-all duration-300"
-          >
-            View All Packages
-          </a>
-        </div>
+      {/* Contact Section - Two column contact form */}
+      <section id="contact">
+        <ContactForm />
       </section>
     </Layout>
   );
