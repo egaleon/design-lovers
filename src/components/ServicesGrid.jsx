@@ -3,19 +3,19 @@ const services = [
     id: 1,
     title: 'Social Celebrations',
     description: 'Birthdays, anniversaries, and milestone events styled with elegance.',
-    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 2,
     title: 'Little Ones',
     description: 'Magical celebrations for baby showers, christenings, and children\'s parties.',
-    image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 3,
     title: 'Romantic Surprises',
     description: 'Intimate proposals, anniversary surprises, and romantic settings.',
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 4,

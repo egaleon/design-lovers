@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import ServicesGrid from './components/ServicesGrid';
 import Packages from './components/Packages';
 import Gallery from './components/Gallery';
+import ContactForm from './components/ContactForm';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
       <div id="gallery">
         <Gallery />
       </div>
+
+      {/* Contact Form */}
+      <ContactForm />
 
       {/* Packages Preview */}
       <section id="packages" className="py-20 bg-dl-ivory">

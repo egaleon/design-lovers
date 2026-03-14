@@ -5,7 +5,6 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Trigger animation after component mounts
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -19,11 +18,11 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image - Luxury White Roses / Event Styling */}
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop"
-          alt="Luxury event decoration"
+          alt="Luxury event styling with white roses decoration"
           className="w-full h-full object-cover"
         />
         {/* Dark Overlay */}
