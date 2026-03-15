@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -14,6 +17,10 @@ export default function Hero() {
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const goToContact = () => {
+    navigate('/contact');
   };
 
   return (
@@ -33,64 +40,53 @@ export default function Hero() {
       <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Title */}
-          <h1
-            className={`
-              font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6
-              transition-all duration-1000 ease-out
-              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6 tracking-wide lg:tracking-wider"
           >
             Creating Beautiful
             <br />
             <span className="text-dl-champagne">& Memorable</span> Events
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p
-            className={`
-              font-sans text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10
-              font-light tracking-wide
-              transition-all duration-1000 ease-out delay-300
-              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="font-sans text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-light tracking-wide"
           >
             Elegant Styling for Meaningful Celebrations in Sydney
-          </p>
+          </motion.p>
 
           {/* CTA Button */}
-          <div
-            className={`
-              transition-all duration-1000 ease-out delay-500
-              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <a
-              href="#contact"
-              className="
-                inline-block bg-dl-gold text-white font-sans text-xs sm:text-sm uppercase tracking-[0.2em] 
-                px-10 py-4 border border-dl-gold
-                hover:bg-dl-coffee hover:border-dl-coffee
-                transition-all duration-300 ease-out
-              "
+            <button
+              onClick={goToContact}
+              className="inline-block bg-dl-gold text-white font-sans text-xs sm:text-sm uppercase tracking-[0.2em] px-10 py-4 border border-dl-gold hover:bg-dl-coffee hover:border-dl-coffee transition-all duration-300 ease-out"
             >
               Plan Your Event
-            </a>
-          </div>
+            </button>
+          </motion.div>
         </div>
 
         {/* Scroll Indicator */}
-        <button
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
           onClick={scrollToContent}
-          className={`
-            absolute bottom-10 left-1/2 -translate-x-1/2
-            text-white/80 hover:text-dl-gold
-            transition-all duration-500 delay-700
-            ${isVisible ? 'opacity-100' : 'opacity-0'}
-          `}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 hover:text-dl-gold transition-colors"
           aria-label="Scroll to content"
         >
           <ChevronDown size={32} className="animate-bounce" />
-        </button>
+        </motion.button>
       </div>
     </section>
   );

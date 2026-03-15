@@ -1,38 +1,47 @@
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Layout from './components/Layout';
-import Hero from './components/Hero';
-import ServicesGrid from './components/ServicesGrid';
-import Packages from './components/Packages';
-import Gallery from './components/Gallery';
-import ContactForm from './components/ContactForm';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  
+  useEffect(() => {
+    if (hash) {
+      // If there's a hash, scroll to that element
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        setTimeout(() => {
+          const navHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      // Otherwise scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [pathname, hash]);
+  
+  return null;
+}
 
 function App() {
   return (
-    <Layout>
-      {/* Hero Section - Full screen intro */}
-      <section id="home">
-        <Hero />
-      </section>
-
-      {/* Services Section - Masonry grid of services */}
-      <section id="services">
-        <ServicesGrid />
-      </section>
-
-      {/* Packages Section - Pricing cards */}
-      <section id="packages">
-        <Packages />
-      </section>
-
-      {/* Gallery Section - Masonry photo gallery with lightbox */}
-      <section id="gallery">
-        <Gallery />
-      </section>
-
-      {/* Contact Section - Two column contact form */}
-      <section id="contact">
-        <ContactForm />
-      </section>
-    </Layout>
+    <Router>
+      <ScrollToTop />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

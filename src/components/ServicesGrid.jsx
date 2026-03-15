@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal';
+
 const services = [
   {
     id: 1,
@@ -30,21 +32,22 @@ export default function ServicesGrid() {
     <section className="bg-dl-ivory py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dl-coffee mb-6">
+        <ScrollReveal className="text-center mb-16 md:mb-20">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dl-coffee mb-6 tracking-wide lg:tracking-wider">
             Our Signature Services
           </h2>
           <p className="font-sans text-dl-coffee/70 max-w-xl mx-auto leading-relaxed">
             From intimate gatherings to grand celebrations, we craft bespoke experiences 
             that reflect your unique style and vision.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {services.map((service) => (
-            <article
-              key={service.id}
+          {services.map((service, index) => (
+            <ScrollReveal 
+              key={service.id} 
+              delay={index * 0.1}
               className="group cursor-pointer"
             >
               {/* Image Container */}
@@ -60,7 +63,7 @@ export default function ServicesGrid() {
 
               {/* Content */}
               <div className="text-center">
-                <h3 className="font-serif text-xl md:text-2xl text-dl-coffee mb-3 group-hover:text-dl-gold transition-colors duration-300">
+                <h3 className="font-serif text-xl md:text-2xl text-dl-coffee mb-3 tracking-wide group-hover:text-dl-gold transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="font-sans text-sm text-dl-coffee/60 mb-5 leading-relaxed">
@@ -70,7 +73,7 @@ export default function ServicesGrid() {
                   Explore Service
                 </span>
               </div>
-            </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -1,20 +1,22 @@
 import { Instagram, Menu, X, Phone } from 'lucide-react';
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'Services', href: '#services' },
-  { name: 'Packages', href: '#packages' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Packages', href: '/#packages' },
+  { name: 'Gallery', href: '/#gallery' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const quickLinks = [
-  { name: 'About Us', href: '#' },
-  { name: 'Services', href: '#services' },
-  { name: 'Packages', href: '#packages' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Packages', href: '/#packages' },
+  { name: 'Gallery', href: '/#gallery' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const socialLinks = [
@@ -24,6 +26,40 @@ const socialLinks = [
 
 export default function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const handleNavClick = (e, href) => {
+    // Close mobile menu
+    setIsMenuOpen(false);
+    
+    // If it's a hash link on the home page
+    if (href.includes('#')) {
+      const isHomePage = location.pathname === '/';
+      
+      if (!isHomePage && href.startsWith('/#')) {
+        // Let the router handle navigation to home with hash
+        return;
+      }
+      
+      // If on home page, scroll to section
+      if (isHomePage) {
+        e.preventDefault();
+        const targetId = href.replace('/#', '');
+        const element = document.getElementById(targetId);
+        
+        if (element) {
+          const navHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -32,20 +68,24 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <a href="#" className="font-serif text-dl-gold text-2xl md:text-3xl font-semibold tracking-wide">
+            <Link 
+              to="/" 
+              className="font-serif text-dl-gold text-2xl md:text-3xl font-semibold tracking-wide"
+            >
               DESIGN LOVERS
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="font-sans text-xs uppercase tracking-widest text-dl-coffee hover:text-dl-gold transition-colors duration-300"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -65,14 +105,14 @@ export default function Layout({ children }) {
           <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-dl-champagne/30">
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="block font-sans text-xs uppercase tracking-widest text-dl-coffee hover:text-dl-gold transition-colors duration-300 py-2"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -90,9 +130,12 @@ export default function Layout({ children }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
             {/* Logo Column */}
             <div className="text-center md:text-left">
-              <a href="#" className="font-serif text-dl-gold text-2xl font-semibold tracking-wide">
+              <Link 
+                to="/" 
+                className="font-serif text-dl-gold text-2xl font-semibold tracking-wide"
+              >
                 DESIGN LOVERS
-              </a>
+              </Link>
               <p className="mt-4 font-sans text-sm text-dl-champagne leading-relaxed">
                 Creating beautiful spaces and unforgettable experiences for your special moments.
               </p>
@@ -104,12 +147,13 @@ export default function Layout({ children }) {
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="font-sans text-sm text-dl-champagne hover:text-dl-gold transition-colors duration-300"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

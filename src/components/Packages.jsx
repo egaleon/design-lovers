@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const packages = [
   {
@@ -49,21 +50,22 @@ export default function Packages() {
     <section className="bg-dl-coffee py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dl-gold mb-6">
+        <ScrollReveal className="text-center mb-16 md:mb-20">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dl-gold mb-6 tracking-wide lg:tracking-wider">
             Curated Packages
           </h2>
           <p className="font-sans text-dl-ivory/80 max-w-xl mx-auto leading-relaxed">
             Choose the perfect package for your celebration. Each option is thoughtfully 
             designed to create an unforgettable experience.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Packages Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.id}
+          {packages.map((pkg, index) => (
+            <ScrollReveal 
+              key={pkg.id} 
+              delay={index * 0.15}
               className={`
                 relative rounded-sm transition-all duration-300
                 ${pkg.featured 
@@ -83,7 +85,7 @@ export default function Packages() {
 
               {/* Package Name */}
               <h3 
-                className={`font-serif text-2xl md:text-3xl mb-2 ${
+                className={`font-serif text-2xl md:text-3xl mb-2 tracking-wide ${
                   pkg.featured ? 'text-dl-coffee' : 'text-dl-ivory'
                 }`}
               >
@@ -124,8 +126,8 @@ export default function Packages() {
 
               {/* Features List */}
               <ul className="space-y-4 mb-10">
-                {pkg.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3">
+                {pkg.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
                     <Check 
                       size={18} 
                       className={`mt-0.5 flex-shrink-0 ${
@@ -157,7 +159,7 @@ export default function Packages() {
               >
                 {pkg.featured ? 'Get Started' : 'Learn More'}
               </button>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
