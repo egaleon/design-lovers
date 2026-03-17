@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
+import BrandIntro from '../components/BrandIntro';
 import ServicesGrid from '../components/ServicesGrid';
 import Packages from '../components/Packages';
 import Gallery from '../components/Gallery';
@@ -13,6 +14,9 @@ export default function Home() {
       <section id="home">
         <Hero />
       </section>
+
+      {/* Brand Introduction - SEO optimized text */}
+      <BrandIntro />
 
       {/* Services Section - Masonry grid of services */}
       <section id="services">
