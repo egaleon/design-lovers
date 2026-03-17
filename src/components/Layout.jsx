@@ -1,6 +1,7 @@
-import { Instagram, Menu, X, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Footer from './Footer';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -10,20 +11,6 @@ const navLinks = [
   { name: 'Packages', href: '/#packages' },
   { name: 'Gallery', href: '/#gallery' },
   { name: 'Contact', href: '/contact' },
-];
-
-const quickLinks = [
-  { name: 'About Us', href: '/about' },
-  { name: 'Services', href: '/#services' },
-  { name: 'Gifts', href: '/gifts' },
-  { name: 'Packages', href: '/#packages' },
-  { name: 'Gallery', href: '/#gallery' },
-  { name: 'Contact', href: '/contact' },
-];
-
-const socialLinks = [
-  { name: 'Instagram', href: 'https://instagram.com', icon: Instagram },
-  { name: 'WhatsApp', href: 'https://wa.me/', icon: Phone },
 ];
 
 export default function Layout({ children }) {
@@ -127,71 +114,7 @@ export default function Layout({ children }) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-dl-coffee text-dl-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-            {/* Logo Column */}
-            <div className="text-center md:text-left">
-              <Link 
-                to="/" 
-                className="font-serif text-dl-gold text-2xl font-semibold tracking-wide"
-              >
-                DESIGN LOVERS
-              </Link>
-              <p className="mt-4 font-sans text-sm text-dl-champagne leading-relaxed">
-                Creating beautiful spaces and unforgettable experiences for your special moments.
-              </p>
-            </div>
-
-            {/* Quick Links Column */}
-            <div className="text-center md:text-left">
-              <h3 className="font-serif text-lg text-dl-gold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="font-sans text-sm text-dl-champagne hover:text-dl-gold transition-colors duration-300"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Social Links Column */}
-            <div className="text-center md:text-left">
-              <h3 className="font-serif text-lg text-dl-gold mb-4">Follow Us</h3>
-              <div className="flex justify-center md:justify-start space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-dl-champagne hover:text-dl-gold hover:bg-dl-ivory/10 rounded-full transition-all duration-300"
-                    aria-label={social.name}
-                  >
-                    <social.icon size={20} />
-                  </a>
-                ))}
-              </div>
-              <p className="mt-4 font-sans text-sm text-dl-champagne">
-                Stay connected for inspiration and updates.
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="mt-12 pt-8 border-t border-dl-ivory/10 text-center">
-            <p className="font-sans text-xs text-dl-champagne">
-              &copy; {new Date().getFullYear()} Design Lovers. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

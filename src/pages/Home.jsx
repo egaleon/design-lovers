@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import ServicesGrid from '../components/ServicesGrid';
 import Packages from '../components/Packages';
 import Gallery from '../components/Gallery';
+import Testimonials from '../components/Testimonials';
 import ScrollReveal from '../components/ScrollReveal';
 
 export default function Home() {
@@ -27,6 +28,9 @@ export default function Home() {
       <section id="gallery">
         <Gallery />
       </section>
+
+      {/* Testimonials Section - Client reviews */}
+      <Testimonials />
 
       {/* CTA Section - Contact prompt */}
       <section className="bg-dl-coffee py-20 md:py-28">
