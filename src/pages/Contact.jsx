@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Instagram, Clock, Send, Check, AlertCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 
 const eventTypes = [
@@ -25,6 +26,9 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+  const location = useLocation();
+  const passedState = location.state;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,6 +39,16 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  // Pre-fill form if coming from Packages section
+  useEffect(() => {
+    if (passedState?.message) {
+      setFormData(prev => ({
+        ...prev,
+        message: passedState.message
+      }));
+    }
+  }, [passedState]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -229,7 +243,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full sm:w-auto bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-12 py-4 flex items-center justify-center gap-3 hover:bg-dl-coffee disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+                    className="w-full sm:w-auto bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-12 py-4 flex items-center justify-center gap-3 hover:bg-dl-coffee disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
                   >
                     {isLoading ? (
                       <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>
