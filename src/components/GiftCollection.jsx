@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
+import SeasonalHighlight from './SeasonalHighlight';
 
 const categories = ['All', 'Balloon Bouquets', 'Flower Arrangements', 'Chocolate Boxes', 'Baby Collection'];
 
@@ -207,6 +208,9 @@ export default function GiftCollection() {
           </div>
         )}
       </div>
+
+      {/* Seasonal Highlight Section */}
+      <SeasonalHighlight />
     </section>
   );
 }
