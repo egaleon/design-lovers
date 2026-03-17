@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Instagram, Clock, Send, Check, AlertCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Clock, Send, Check, AlertCircle, Users, Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
@@ -6,12 +6,36 @@ import ScrollReveal from '../components/ScrollReveal';
 const eventTypes = [
   { value: '', label: 'Select event type' },
   { value: 'wedding', label: 'Wedding' },
-  { value: 'birthday', label: 'Birthday' },
-  { value: 'baby-shower', label: 'Baby Shower' },
-  { value: 'corporate', label: 'Corporate Event' },
+  { value: 'engagement', label: 'Engagement Party' },
+  { value: 'proposal', label: 'Proposal Setup' },
+  { value: 'birthday', label: 'Birthday Celebration' },
   { value: 'anniversary', label: 'Anniversary' },
-  { value: 'proposal', label: 'Proposal' },
+  { value: 'baby-shower', label: 'Baby Shower' },
+  { value: 'baptism', label: 'Baptism / Christening' },
+  { value: 'gender-reveal', label: 'Gender Reveal' },
+  { value: 'graduation', label: 'Graduation' },
+  { value: 'corporate', label: 'Corporate Event' },
+  { value: 'picnic', label: 'Luxury Picnic' },
+  { value: 'religious', label: 'Religious Celebration' },
   { value: 'other', label: 'Other' },
+];
+
+const servicePackages = [
+  { value: '', label: 'Interested in a package? (Optional)' },
+  { value: 'essential', label: 'Essential Package ($1,200)' },
+  { value: 'signature', label: 'Signature Package ($2,800)' },
+  { value: 'luxury', label: 'Luxury Package ($5,500+)' },
+  { value: 'gifts', label: 'Gift Collection' },
+  { value: 'custom', label: 'Custom Styling' },
+];
+
+const guestCountOptions = [
+  { value: '', label: 'Select range' },
+  { value: '1-10', label: '1 - 10 guests' },
+  { value: '11-20', label: '11 - 20 guests' },
+  { value: '21-50', label: '21 - 50 guests' },
+  { value: '51-100', label: '51 - 100 guests' },
+  { value: '100+', label: '100+ guests' },
 ];
 
 const contactInfo = [
@@ -28,27 +52,21 @@ const socialLinks = [
 export default function Contact() {
   const location = useLocation();
   const passedState = location.state;
+  const isFromPackage = passedState?.subject?.includes('Package');
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     eventType: '',
+    servicePackage: '',
     eventDate: '',
-    message: '',
+    guestCount: '',
+    message: passedState?.message || '',
   });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  // Pre-fill form if coming from Packages section
-  useEffect(() => {
-    if (passedState?.message) {
-      setFormData(prev => ({
-        ...prev,
-        message: passedState.message
-      }));
-    }
-  }, [passedState]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -80,21 +98,36 @@ export default function Contact() {
     
     setIsLoading(false);
     setIsSuccess(true);
-    setFormData({ name: '', email: '', eventType: '', eventDate: '', message: '' });
-    setTimeout(() => setIsSuccess(false), 6000);
+    setFormData({ 
+      name: '', 
+      email: '', 
+      phone: '',
+      eventType: '', 
+      servicePackage: '',
+      eventDate: '',
+      guestCount: '',
+      message: '' 
+    });
+    setTimeout(() => setIsSuccess(false), 8000);
   };
 
   return (
     <>
       {/* Header */}
-      <div className="bg-dl-champagne py-24 md:py-32">
+      <div className="bg-dl-champagne py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
+            <p className="font-sans text-xs uppercase tracking-[0.3em] text-dl-gold mb-4">
+              {isFromPackage ? 'Quote Request' : 'Contact Us'}
+            </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dl-coffee tracking-wide lg:tracking-wider">
-              Get In Touch
+              {isFromPackage ? 'Request Your Quote' : 'Get In Touch'}
             </h1>
             <p className="font-sans text-dl-coffee/70 mt-4 max-w-xl mx-auto">
-              Ready to create something beautiful? We&apos;d love to hear about your event.
+              {isFromPackage 
+                ? 'Tell us about your event and we will prepare a personalized proposal for you.'
+                : 'Ready to create something beautiful? We would love to hear about your event.'
+              }
             </p>
           </ScrollReveal>
         </div>
@@ -103,7 +136,7 @@ export default function Contact() {
       {/* Contact Form Section */}
       <section className="bg-dl-ivory">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[800px]">
             {/* Left Column - Contact Info */}
             <ScrollReveal className="bg-dl-champagne py-16 px-8 md:px-12 lg:px-16 flex flex-col justify-center">
               <div className="max-w-md mx-auto lg:mx-0">
@@ -151,29 +184,33 @@ export default function Contact() {
             <ScrollReveal delay={0.2} className="bg-white py-16 px-8 md:px-12 lg:px-16 flex flex-col justify-center">
               <div className="max-w-md mx-auto lg:mx-0 w-full">
                 <h3 className="font-serif text-2xl md:text-3xl text-dl-coffee mb-2 tracking-wide">
-                  Send an Inquiry
+                  {isFromPackage ? 'Tell Us About Your Event' : 'Send an Inquiry'}
                 </h3>
                 <p className="font-sans text-sm text-dl-coffee/60 mb-10">
-                  Fill in the details below and we&apos;ll get back to you within 24 hours.
+                  {isFromPackage 
+                    ? 'Provide the details below and we will send you a tailored quote within 24 hours.'
+                    : 'Fill in the details below and we will get back to you within 24 hours.'
+                  }
                 </p>
 
                 {isSuccess && (
-                  <div className="mb-8 p-5 bg-green-50 border border-green-200 rounded-sm">
+                  <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-sm">
                     <div className="flex items-start gap-3">
                       <div className="p-1 bg-green-100 rounded-full flex-shrink-0 mt-0.5">
                         <Check size={18} className="text-green-600" />
                       </div>
                       <div>
-                        <p className="font-serif text-lg text-green-800 mb-1">Thank You!</p>
-                        <p className="font-sans text-sm text-green-700">
-                          We&apos;ve received your inquiry and will be in touch within 24 hours.
+                        <p className="font-serif text-lg text-green-800 mb-1">Thank you!</p>
+                        <p className="font-sans text-sm text-green-700 leading-relaxed">
+                          We have received your inquiry and will provide a personalized proposal within 24 hours.
                         </p>
                       </div>
                     </div>
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Field */}
                   <div>
                     <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Your Name *</label>
                     <input
@@ -187,20 +224,36 @@ export default function Contact() {
                     {errors.name && <p className="mt-2 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} /> {errors.name}</p>}
                   </div>
 
-                  <div>
-                    <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full bg-transparent border-0 border-b py-3 font-sans text-dl-coffee placeholder:text-dl-coffee/30 focus:outline-none focus:border-dl-gold transition-colors duration-300 ${errors.email ? 'border-red-400' : 'border-dl-coffee/20'}`}
-                      placeholder="jane@example.com"
-                    />
-                    {errors.email && <p className="mt-2 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} /> {errors.email}</p>}
+                  {/* Email & Phone Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Email Address *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`w-full bg-transparent border-0 border-b py-3 font-sans text-dl-coffee placeholder:text-dl-coffee/30 focus:outline-none focus:border-dl-gold transition-colors duration-300 ${errors.email ? 'border-red-400' : 'border-dl-coffee/20'}`}
+                        placeholder="jane@example.com"
+                      />
+                      {errors.email && <p className="mt-2 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} /> {errors.email}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Phone Number</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-0 border-b border-dl-coffee/20 py-3 font-sans text-dl-coffee placeholder:text-dl-coffee/30 focus:outline-none focus:border-dl-gold transition-colors duration-300"
+                        placeholder="+61 400 000 000"
+                      />
+                    </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {/* Event Type & Service Package Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Event Type *</label>
                       <select
@@ -217,7 +270,27 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Event Date</label>
+                      <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Interested Package</label>
+                      <select
+                        name="servicePackage"
+                        value={formData.servicePackage}
+                        onChange={handleChange}
+                        className={`w-full bg-transparent border-0 border-b py-3 font-sans text-dl-coffee focus:outline-none focus:border-dl-gold transition-colors duration-300 cursor-pointer appearance-none border-dl-coffee/20 ${!formData.servicePackage && 'text-dl-coffee/40'}`}
+                      >
+                        {servicePackages.map((pkg) => (
+                          <option key={pkg.value} value={pkg.value}>{pkg.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Event Date & Guest Count Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2 flex items-center gap-2">
+                        <Calendar size={14} className="text-dl-gold" />
+                        Event Date
+                      </label>
                       <input
                         type="date"
                         name="eventDate"
@@ -226,8 +299,26 @@ export default function Contact() {
                         className="w-full bg-transparent border-0 border-b border-dl-coffee/20 py-3 font-sans text-dl-coffee focus:outline-none focus:border-dl-gold transition-colors duration-300 cursor-pointer"
                       />
                     </div>
+
+                    <div>
+                      <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2 flex items-center gap-2">
+                        <Users size={14} className="text-dl-gold" />
+                        Guest Count
+                      </label>
+                      <select
+                        name="guestCount"
+                        value={formData.guestCount}
+                        onChange={handleChange}
+                        className={`w-full bg-transparent border-0 border-b py-3 font-sans text-dl-coffee focus:outline-none focus:border-dl-gold transition-colors duration-300 cursor-pointer appearance-none border-dl-coffee/20 ${!formData.guestCount && 'text-dl-coffee/40'}`}
+                      >
+                        {guestCountOptions.map((option) => (
+                          <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
 
+                  {/* Message Field */}
                   <div>
                     <label className="block font-sans text-xs uppercase tracking-widest text-dl-coffee/60 mb-2">Tell Us Your Vision</label>
                     <textarea
@@ -240,15 +331,16 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full sm:w-auto bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-12 py-4 flex items-center justify-center gap-3 hover:bg-dl-coffee disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
+                    className="w-full sm:w-auto bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-12 py-4 flex items-center justify-center gap-3 hover:bg-dl-coffee disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 mt-8"
                   >
                     {isLoading ? (
                       <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>
                     ) : (
-                      <><Send size={16} strokeWidth={1.5} />Send Inquiry</>
+                      <><Send size={16} strokeWidth={1.5} />{isFromPackage ? 'Request Quote' : 'Send Inquiry'}</>
                     )}
                   </button>
                 </form>
