@@ -52,7 +52,7 @@ const gifts = [
     category: 'Flower Arrangements',
     description: 'Luxurious peony bouquet in soft blush and cream tones.',
     price: '$195',
-    image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ee9?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=800&auto=format&fit=crop',
   },
   {
     id: 7,
@@ -84,7 +84,7 @@ const gifts = [
     category: 'Flower Arrangements',
     description: 'Stunning phalaenopsis orchids in a ceramic vessel.',
     price: '$165',
-    image: 'https://images.unsplash.com/photo-1566959228363-8194824b7c76?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?q=80&w=800&auto=format&fit=crop',
   },
   {
     id: 11,
