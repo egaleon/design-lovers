@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
+import Gifts from './pages/Gifts';
 import Contact from './pages/Contact';
 
 // Scroll to top on route change
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/gifts" element={<Gifts />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

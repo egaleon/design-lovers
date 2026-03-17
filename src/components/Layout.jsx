@@ -6,6 +6,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/#services' },
+  { name: 'Gifts', href: '/gifts' },
   { name: 'Packages', href: '/#packages' },
   { name: 'Gallery', href: '/#gallery' },
   { name: 'Contact', href: '/contact' },
@@ -14,6 +15,7 @@ const navLinks = [
 const quickLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/#services' },
+  { name: 'Gifts', href: '/gifts' },
   { name: 'Packages', href: '/#packages' },
   { name: 'Gallery', href: '/#gallery' },
   { name: 'Contact', href: '/contact' },
