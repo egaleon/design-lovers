@@ -49,3 +49,4 @@ coverage
 .next
 .nuxt
 .vite
+.vercel
