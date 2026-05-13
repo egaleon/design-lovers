@@ -1,5 +1,6 @@
 import { Sparkles, Gem, Crown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 
 const brandValues = [
@@ -20,9 +21,50 @@ const brandValues = [
   },
 ];
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Design Lovers Events & Styling",
+  "description": "Learn about Design Lovers, Sydney's premier event styling business dedicated to creating elegant, personalized celebrations.",
+  "url": "https://designlovers.com.au/about",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "Design Lovers Events & Styling",
+    "description": "Premier Sydney-based event styling business creating elegant, personalized, and unforgettable celebrations.",
+    "url": "https://designlovers.com.au",
+    "telephone": "+61-412-345-678",
+    "email": "hello@designlovers.com.au",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Sydney"
+    },
+    "serviceType": [
+      "Event Styling",
+      "Event Decoration",
+      "Wedding Styling",
+      "Corporate Event Design",
+      "Baby Shower Decoration"
+    ],
+    "priceRange": "$$$"
+  }
+};
+
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Us"
+        description="Learn about Design Lovers Events & Styling. Sydney's premier event design company creating elegant weddings, baby showers, and corporate events."
+        url="https://designlovers.com.au/about"
+        jsonLd={aboutJsonLd}
+      />
+
       {/* Header Section */}
       <div className="bg-dl-champagne py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

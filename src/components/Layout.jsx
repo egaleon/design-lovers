@@ -59,9 +59,21 @@ export default function Layout({ children }) {
             {/* Logo */}
             <Link 
               to="/" 
-              className="font-serif text-dl-gold text-2xl md:text-3xl font-semibold tracking-wide"
+              className="flex items-center gap-2.5 md:gap-3"
             >
-              DESIGN LOVERS
+              <img 
+                src="/logo.webp" 
+                alt="Design Lovers Events & Styling" 
+                className="h-11 md:h-14 w-auto rounded-sm"
+              />
+              <div className="flex flex-col">
+                <span className="font-serif text-dl-gold text-xl md:text-2xl font-semibold tracking-wide leading-none">
+                  DESIGN LOVERS
+                </span>
+                <span className="font-sans text-dl-gold/70 text-[9px] md:text-[11px] tracking-[0.2em] uppercase leading-none mt-0.5">
+                  Events & Styling Pty Ltd
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}

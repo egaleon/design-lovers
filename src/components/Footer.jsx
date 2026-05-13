@@ -59,9 +59,16 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <Link 
               to="/" 
-              className="font-serif text-dl-gold text-2xl md:text-3xl font-semibold tracking-wide inline-block mb-4"
+              className="inline-block mb-4"
             >
-              DESIGN LOVERS
+              <div className="flex flex-col">
+                <span className="font-serif text-dl-gold text-2xl md:text-3xl font-semibold tracking-wide leading-none">
+                  DESIGN LOVERS
+                </span>
+                <span className="font-sans text-dl-gold/70 text-[10px] tracking-[0.25em] uppercase leading-none mt-1">
+                  Events & Styling Pty Ltd
+                </span>
+              </div>
             </Link>
             <p className="font-sans text-sm text-dl-ivory/70 mb-6 leading-relaxed">
               Creating elegant, unforgettable celebrations across Sydney.

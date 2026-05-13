@@ -6,23 +6,19 @@ export default function BrandIntro() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal>
           <h2 className="font-serif text-2xl md:text-3xl text-dl-coffee leading-relaxed italic tracking-wide">
-            Bespoke Event Styling & Luxury Decorations across Sydney
+            Bespoke Event Styling & Luxury Decorations Across Sydney
           </h2>
           
-          <p className="font-sans text-sm md:text-base text-dl-coffee/70 mt-8 leading-loose tracking-wide">
-            At Design Lovers, we curate elegant, personalized, and memorable experiences for{' '}
-            <strong className="text-dl-coffee">weddings, proposals, and engagement setups</strong>. 
-            Our expertise extends to{' '}
-            <strong className="text-dl-coffee">gender reveals, anniversaries, and bespoke birthday styling</strong>. 
-            From <strong className="text-dl-coffee">baby showers and baptism decorations</strong> to{' '}
-            <strong className="text-dl-coffee">romantic surprise setups and seasonal holiday events</strong>, 
-            we transform every space. 
-            
-            <br /><br />
-            
-            We also specialize in{' '}
-            <strong className="text-dl-coffee">school graduations, religious and family celebrations, luxury picnics, storefront styling, and corporate events</strong>{' '}
-            throughout the Sydney region. Every special occasion is an opportunity to create a visually stunning and lasting impression.
+          <p className="font-serif text-lg md:text-xl text-dl-gold mt-8 leading-relaxed tracking-wide">
+            Welcome to Design Lovers Events & Styling
+          </p>
+          
+          <p className="font-sans text-sm md:text-base text-dl-coffee/70 mt-6 leading-loose tracking-wide">
+            We create beautifully curated event decorations and styling, designing elegant, personalized spaces filled with charm.
+          </p>
+          
+          <p className="font-sans text-sm md:text-base text-dl-coffee/70 mt-4 leading-loose tracking-wide">
+            Our purpose is to accompany you in every celebration with thoughtfully crafted designs that transform each moment into a unique and memorable experience.
           </p>
 
           {/* Golden Divider Line */}

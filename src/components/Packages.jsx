@@ -8,64 +8,127 @@ const packages = [
   {
     id: 1,
     name: 'Essential',
-    price: '$1,200',
-    description: 'Perfect for intimate gatherings',
+    subtitle: 'Essential Styling Package',
+    price: '$350 AUD',
+    description: 'Ideal for intimate celebrations and small gatherings.',
     features: [
-      'Initial consultation & mood board',
-      'Table styling for up to 20 guests',
-      'Basic floral arrangements',
-      'Setup & pack-down service',
+      'One plain backdrop',
+      'One Plinth',
+      'One Balloon garland (up to 3 colours)',
+      '3 metallic stand',
+      'One artificial flower arrangement (Backdrop)',
+      'Up to 5 words or letter sign',
     ],
     featured: false,
-    extendedDescription: 'The Essential package is designed for those seeking elegant styling without overwhelming complexity. Ideal for intimate dinner parties, small celebrations, and gatherings of close family and friends.',
+    extendedDescription: 'The Essential Styling Package is perfect for intimate celebrations and small gatherings, offering elegant foundational decor that creates a beautiful atmosphere.',
     extendedFeatures: [
-      'Comprehensive initial consultation to understand your vision',
-      'Custom mood board and color palette development',
-      'Professional table styling for up to 20 guests',
-      'Elegant basic floral arrangements and centerpieces',
-      'Complete setup before your event and pack-down after',
-      'Coordination with venue for setup logistics',
-      '2-week advance booking required',
+      'One plain backdrop',
+      'One Plinth',
+      'One Balloon garland (up to 3 colours)',
+      '3 metallic stand',
+      'One artificial flower arrangement (Backdrop)',
+      'Up to 5 words or letter sign',
     ],
   },
   {
     id: 2,
     name: 'Signature',
-    price: '$2,800',
-    description: 'Our most popular choice',
+    subtitle: 'Signature Styling Package',
+    price: '$450 AUD',
+    description: 'Perfect for those seeking a more complete and cohesive visual experience.',
     features: [
-      'Everything in Essential, plus:',
-      'Custom design concept',
-      'Premium linen & tableware',
-      'Statement floral installations',
-      'On-site styling coordination',
+      'One plain backdrop',
+      'One 3D arch',
+      'One Plinth',
+      '2 balloon garlands (each up to 3 colours)',
+      '3 metallic stand',
+      'Two artificial flower arrangements (Backdrops)',
+      'Up to 20 single artificial flowers (for garlands)',
+      'Cake stand or premium decorative table',
+      'Up to 5 words or letter sign',
     ],
     featured: true,
   },
   {
     id: 3,
-    name: 'Luxury',
-    price: '$5,500+',
-    description: 'For the ultimate experience',
+    name: 'Premium',
+    subtitle: 'Premium Styling Package',
+    price: '$700 AUD',
+    description: 'A comprehensive styling experience for memorable celebrations.',
     features: [
-      'Everything in Signature, plus:',
-      'Bespoke furniture hire',
-      'Full venue transformation',
-      'Dedicated event stylist',
-      'Premium add-ons included',
+      '2 plain backdrops',
+      'One 3D arch',
+      '2 Balloon garlands (each up to 3 colours)',
+      '3 Plinths',
+      'Up to 20 single artificial flowers (for garlands)',
+      'Cake stand',
+      'Premium table',
+      '3 metallic stand',
+      'Two artificial flower arrangements (Backdrops)',
+      'Up to 5 words or letter sign',
+      'Giant artificial flower',
+      'Up to 8 food risers',
     ],
     featured: false,
-    extendedDescription: 'The Luxury package offers the pinnacle of event styling. Perfect for weddings, milestone celebrations, and corporate events where only the absolute best will suffice.',
+    extendedDescription: 'The Premium Styling Package delivers a comprehensive styling experience with expanded decor elements for truly memorable celebrations.',
     extendedFeatures: [
-      'Everything included in the Signature package',
-      'Bespoke furniture hire and luxury props',
-      'Complete venue transformation and branding',
-      'Dedicated senior event stylist for your event',
-      'Premium add-ons: champagne walls, neon signs, luxury linens',
-      'Multiple venue visits and comprehensive planning sessions',
-      'Priority booking with 24/7 support',
-      'Post-event photography styling session',
-      'Complimentary anniversary floral arrangement',
+      '2 plain backdrops',
+      'One 3D arch',
+      '2 Balloon garlands (each up to 3 colours)',
+      '3 Plinths',
+      'Up to 20 single artificial flowers (for garlands)',
+      'Cake stand',
+      'Premium table',
+      '3 metallic stand',
+      'Two artificial flower arrangements (Backdrops)',
+      'Up to 5 words or letter sign',
+      'Giant artificial flower',
+      'Up to 8 food risers',
+    ],
+  },
+  {
+    id: 4,
+    name: 'Luxury',
+    subtitle: 'Luxury Styling Package',
+    price: '$850 AUD',
+    description: 'The ultimate styling experience for unforgettable events.',
+    features: [
+      '2 backdrops or Balloon Tree Decor',
+      '1 Modern Halo 3D Backdrop',
+      'Internal backdrop lighting',
+      'Three Points',
+      'Two balloon garlands (each up to 3 colours)',
+      'Up to 30 single artificial flowers (for garlands)',
+      'Cake stand',
+      'Premium table',
+      'Two floral arrangements',
+      'Three metallic stand',
+      'Two artificial flower arrangements (Backdrops)',
+      'Up to 5 words or letter sign',
+      'Giant artificial flower',
+      'Up to 8 food risers',
+      'Decorative kids chair',
+      'Cut-outs',
+    ],
+    featured: false,
+    extendedDescription: 'The Luxury Styling Package offers the ultimate event styling experience with premium elements and exclusive decor for truly unforgettable celebrations.',
+    extendedFeatures: [
+      '2 backdrops or Balloon Tree Decor',
+      '1 Modern Halo 3D Backdrop',
+      'Internal backdrop lighting',
+      'Three Points',
+      'Two balloon garlands (each up to 3 colours)',
+      'Up to 30 single artificial flowers (for garlands)',
+      'Cake stand',
+      'Premium table',
+      'Two floral arrangements',
+      'Three metallic stand',
+      'Two artificial flower arrangements (Backdrops)',
+      'Up to 5 words or letter sign',
+      'Giant artificial flower',
+      'Up to 8 food risers',
+      'Decorative kids chair',
+      'Cut-outs',
     ],
   },
 ];
@@ -84,7 +147,7 @@ export default function Packages() {
         } 
       });
     } else {
-      // Open modal for Essential or Luxury
+      // Open modal for Essential, Premium or Luxury
       setSelectedPackage(pkg);
     }
   };
@@ -123,7 +186,7 @@ export default function Packages() {
         </ScrollReveal>
 
         {/* Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {packages.map((pkg, index) => (
             <ScrollReveal 
               key={pkg.id} 
@@ -131,8 +194,8 @@ export default function Packages() {
               className={`
                 relative rounded-sm transition-all duration-300
                 ${pkg.featured 
-                  ? 'bg-white py-12 px-8 md:py-16 md:px-10 md:scale-105 shadow-2xl z-10' 
-                  : 'bg-dl-coffee border border-dl-ivory/20 py-10 px-8 hover:border-dl-gold/50'
+                  ? 'bg-white py-12 px-6 md:py-16 md:px-8 shadow-2xl z-10' 
+                  : 'bg-dl-coffee border border-dl-ivory/20 py-10 px-6 hover:border-dl-gold/50'
                 }
               `}
             >
@@ -147,12 +210,21 @@ export default function Packages() {
 
               {/* Package Name */}
               <h3 
-                className={`font-serif text-2xl md:text-3xl mb-2 tracking-wide ${
+                className={`font-serif text-2xl md:text-3xl mb-1 tracking-wide ${
                   pkg.featured ? 'text-dl-coffee' : 'text-dl-ivory'
                 }`}
               >
                 {pkg.name}
               </h3>
+
+              {/* Subtitle */}
+              <p 
+                className={`font-sans text-xs uppercase tracking-wider mb-4 ${
+                  pkg.featured ? 'text-dl-coffee/50' : 'text-dl-ivory/50'
+                }`}
+              >
+                {pkg.subtitle}
+              </p>
 
               {/* Description */}
               <p 
@@ -166,17 +238,12 @@ export default function Packages() {
               {/* Price */}
               <div className="mb-8">
                 <span 
-                  className={`font-serif text-4xl md:text-5xl ${
+                  className={`font-serif text-3xl md:text-4xl ${
                     pkg.featured ? 'text-dl-gold' : 'text-dl-gold'
                   }`}
                 >
                   {pkg.price}
                 </span>
-                {pkg.name === 'Luxury' && (
-                  <span className={`font-sans text-sm ml-1 ${pkg.featured ? 'text-dl-coffee/60' : 'text-dl-ivory/60'}`}>
-                    starting
-                  </span>
-                )}
               </div>
 
               {/* Divider */}
@@ -187,7 +254,7 @@ export default function Packages() {
               />
 
               {/* Features List */}
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-3 mb-10">
                 {pkg.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <Check 
@@ -227,7 +294,7 @@ export default function Packages() {
         </div>
       </div>
 
-      {/* Modal for Essential and Luxury */}
+      {/* Modal for Essential, Premium and Luxury */}
       <AnimatePresence>
         {selectedPackage && (
           <motion.div
@@ -262,7 +329,7 @@ export default function Packages() {
               <div className="p-8 md:p-12">
                 {/* Package Name */}
                 <h2 className="font-serif text-3xl md:text-4xl text-dl-coffee mb-2 tracking-wide">
-                  {selectedPackage.name} Package
+                  {selectedPackage.subtitle}
                 </h2>
 
                 {/* Price */}
@@ -302,7 +369,7 @@ export default function Packages() {
                       navigate('/contact', { 
                         state: { 
                           subject: `Interest in the ${selectedPackage.name} Package`,
-                          message: `I am interested in learning more about the ${selectedPackage.name} Package for my upcoming event.` 
+                          message: `I am interested in learning more about the ${selectedPackage.subtitle} for my upcoming event.` 
                         } 
                       });
                     }}

@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Instagram, Clock, Send, Check, AlertCircle, Users, Calendar } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 
 const eventTypes = [
@@ -48,6 +49,28 @@ const contactInfo = [
 const socialLinks = [
   { icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
 ];
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Design Lovers Events & Styling",
+  "description": "Get in touch with Design Lovers for event styling inquiries, quotes, and consultations in Sydney.",
+  "url": "https://designlovers.com.au/contact",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "Design Lovers Events & Styling",
+    "telephone": "+61-412-345-678",
+    "email": "hello@designlovers.com.au",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    },
+    "openingHours": "Mo-Sa 09:00-18:00",
+    "url": "https://designlovers.com.au/contact"
+  }
+};
 
 export default function Contact() {
   const location = useLocation();
@@ -113,6 +136,13 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title={isFromPackage ? 'Request Your Quote' : 'Get In Touch'}
+        description="Ready to create something beautiful? Contact Design Lovers Events & Styling in Sydney for event design inquiries, quotes, and consultations."
+        url="https://designlovers.com.au/contact"
+        jsonLd={contactJsonLd}
+      />
+
       {/* Header */}
       <div className="bg-dl-champagne py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

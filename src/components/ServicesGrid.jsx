@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Truck } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const services = [
@@ -10,55 +10,66 @@ const services = [
     description: 'Birthdays, anniversaries, and milestone events styled with elegance.',
     image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1000&auto=format&fit=crop',
     details: [
-      'Custom theme design and color palette',
-      'Premium table styling and linens',
-      'Elegant balloon installations',
-      'Floral centerpieces and decor',
-      'Complete setup and pack-down service',
+      'Birthday celebrations',
+      'Graduated',
+      'Picnics',
+      'Custom event styling',
     ],
     fullDescription: 'Transform your social gatherings into extraordinary celebrations. From intimate dinner parties to grand birthday celebrations, we create cohesive designs that reflect your personal style and leave lasting impressions on your guests.',
   },
   {
     id: 2,
-    title: 'Little Ones',
+    title: 'Little Ones & Baby Events',
     description: 'Magical celebrations for baby showers, christenings, and children\'s parties.',
     image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1000&auto=format&fit=crop',
     details: [
-      'Themed decor for baby showers',
-      'Christening ceremony styling',
-      'Children\'s party decorations',
-      'Sweet table and dessert displays',
-      'Custom signage and backdrops',
+      'Birthday celebrations infantiles',
+      'Baby shower',
+      'Gender reveal',
+      'Baptisms',
+      'Children\'s themes',
     ],
-    fullDescription: 'Welcome new beginnings with beautifully styled celebrations. We create enchanting atmospheres for baby showers, christenings, and children\'s parties that capture the joy and wonder of these precious moments.',
+    fullDescription: 'Magical and creative setups for baby showers and children\'s celebrations, full of color, imagination, and charm.',
   },
   {
     id: 3,
-    title: 'Romantic Surprises',
+    title: 'Weddings & Romantic Experiences',
     description: 'Intimate proposals, anniversary surprises, and romantic settings.',
     image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000&auto=format&fit=crop',
     details: [
-      'Proposal setup and coordination',
-      'Anniversary celebration styling',
-      'Romantic dinner arrangements',
-      'Floral installations and candles',
-      'Private venue decoration',
+      'Wedding styling',
+      'Romantic celebrations',
+      'Proposals',
+      'Anniversaries',
     ],
-    fullDescription: 'Create unforgettable romantic moments with our bespoke surprise styling. Whether you are planning a marriage proposal or celebrating years of love, we design intimate settings that speak from the heart.',
+    fullDescription: 'Sophisticated and intimate designs for weddings, proposals, and romantic celebrations, crafted with elegance and attention to detail.',
   },
   {
     id: 4,
-    title: 'Corporate & Retail',
+    title: 'Corporate & Brand Styling',
     description: 'Professional events, product launches, and retail displays.',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop',
     details: [
-      'Corporate event styling',
-      'Product launch decorations',
-      'Retail window displays',
-      'Brand activation setups',
-      'Conference and gala decor',
+      'Corporate Event Styling',
+      'Retail & storefront styling',
+      'Product launches',
+      'Brand activations',
     ],
-    fullDescription: 'Elevate your brand presence with sophisticated corporate styling. From product launches to gala dinners, we create professional environments that align with your brand identity and impress your stakeholders.',
+    fullDescription: 'Professional and visually impactful styling for corporate events, retail displays, and brand experiences.',
+  },
+  {
+    id: 5,
+    title: 'Seasonal & Special Events',
+    description: 'Thoughtfully designed seasonal decor for holidays and memorable moments.',
+    image: 'https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=1000&auto=format&fit=crop',
+    details: [
+      "Valentine's Day",
+      'Easter',
+      'Christmas',
+      "Women's Day",
+      'New Year',
+    ],
+    fullDescription: 'Creative seasonal styling for holidays and special occasions, designed to capture the spirit of every celebration.',
   },
 ];
 
@@ -93,13 +104,13 @@ export default function ServicesGrid() {
             Our Signature Services
           </h2>
           <p className="font-sans text-dl-coffee/70 max-w-xl mx-auto leading-relaxed">
-            From intimate gatherings to grand celebrations, we craft bespoke experiences 
-            that reflect your unique style and vision.
+            From concept to execution, we craft refined event styling across a variety of occasions. 
+            Each service category is designed to offer a bespoke, elevated experience that aligns with your personal style.
           </p>
         </ScrollReveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
           {services.map((service, index) => (
             <ScrollReveal 
               key={service.id} 
@@ -136,6 +147,18 @@ export default function ServicesGrid() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Delivery Note */}
+        <ScrollReveal>
+          <div className="mt-12 md:mt-16 flex items-center justify-center gap-3">
+            <div className="h-px w-12 bg-dl-gold/40" />
+            <Truck size={16} className="text-dl-gold" strokeWidth={1.5} />
+            <p className="font-sans text-xs md:text-sm text-dl-coffee/60 tracking-wide">
+              Includes delivery within 5 km for all the packages
+            </p>
+            <div className="h-px w-12 bg-dl-gold/40" />
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Modal */}

@@ -1,9 +1,45 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import GiftCollection from '../components/GiftCollection';
+
+const giftsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Luxury Gifts Collection - Design Lovers Sydney",
+  "description": "Bespoke gift arrangements crafted in Sydney for every special occasion. Personalized luxury gifts for weddings, baby showers, and corporate events.",
+  "url": "https://designlovers.com.au/gifts",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Luxury Gift Arrangements"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Personalized Gift Boxes"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Corporate Gift Hampers"
+      }
+    ]
+  }
+};
 
 export default function Gifts() {
   return (
     <main>
+      <SEO
+        title="Luxury Gifts"
+        description="Bespoke gift arrangements crafted in Sydney for every special occasion. Personalized luxury gifts, gift boxes, and hampers by Design Lovers."
+        url="https://designlovers.com.au/gifts"
+        jsonLd={giftsJsonLd}
+      />
+
       {/* Page Header */}
       <div className="bg-dl-champagne py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
