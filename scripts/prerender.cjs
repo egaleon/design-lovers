@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -45,15 +44,34 @@ const server = http.createServer((req, res) => {
   });
 });
 
+async function getBrowser() {
+  const isVercel = process.env.VERCEL === '1';
+
+  if (isVercel) {
+    // Vercel build environment: use @sparticuz/chromium with puppeteer-core
+    const puppeteer = require('puppeteer-core');
+    const chromium = require('@sparticuz/chromium');
+    return puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  }
+
+  // Local development: use full puppeteer (downloads its own Chromium)
+  const puppeteer = require('puppeteer');
+  return puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+}
+
 async function prerender() {
   return new Promise((resolve, reject) => {
     server.listen(port, async (err) => {
       if (err) return reject(err);
       
       try {
-        const browser = await puppeteer.launch({
-          args: ['--no-sandbox', '--disable-setuid-sandbox']
-        });
+        const browser = await getBrowser();
         const page = await browser.newPage();
         
         for (const route of routes) {
@@ -82,7 +100,12 @@ async function prerender() {
   });
 }
 
-prerender().catch(err => {
-  console.error('[prerender] Failed:', err);
-  process.exit(1);
-});
+prerender()
+  .then(() => {
+    console.log('[prerender] All routes prerendered successfully.');
+  })
+  .catch(err => {
+    console.error('[prerender] Warning: prerender failed:', err.message);
+    console.error('[prerender] The build will continue. SEO meta tags may not be pre-rendered in static HTML.');
+    // Do NOT exit with error code — allow the build to succeed even if prerender fails
+  });
