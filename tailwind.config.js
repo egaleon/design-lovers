@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dl-ivory': '#F9F7F2',
-        'dl-gold': '#C5A059',
-        'dl-coffee': '#3D3630',
-        'dl-champagne': '#E8DED1',
+        'dl-ivory': '#0a0a0a',
+        'dl-gold': '#D4AF37',
+        'dl-coffee': '#F5F5F0',
+        'dl-champagne': '#141414',
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'serif'],

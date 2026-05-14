@@ -49,7 +49,7 @@ const seasonalEvents = [
 
 export default function SeasonalHighlight() {
   return (
-    <section className="bg-dl-champagne/30 py-16 md:py-20">
+    <section className="bg-dl-champagne py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal className="text-center mb-12">
@@ -68,7 +68,7 @@ export default function SeasonalHighlight() {
               {seasonalEvents.map((event, index) => (
                 <div
                   key={event.id}
-                  className="group flex-shrink-0 w-64 md:w-72 bg-white/60 backdrop-blur-sm p-6 md:p-8 text-center border border-dl-gold/10 hover:border-dl-gold/30 hover:bg-white/80 transition-all duration-300"
+                  className="group flex-shrink-0 w-64 md:w-72 bg-white/5 backdrop-blur-sm p-6 md:p-8 text-center border border-dl-gold/10 hover:border-dl-gold/30 hover:bg-white/10 transition-all duration-300"
                 >
                   {/* Icon */}
                   <div className="inline-flex items-center justify-center w-12 h-12 mb-4 border border-dl-gold/20 rounded-full group-hover:bg-dl-gold/10 group-hover:border-dl-gold/40 transition-all duration-300">
@@ -107,7 +107,7 @@ export default function SeasonalHighlight() {
           </p>
           <Link
             to="/contact"
-            className="inline-block font-sans text-xs uppercase tracking-[0.2em] text-dl-gold border-b border-dl-gold pb-1 hover:text-dl-coffee hover:border-dl-coffee transition-all duration-300"
+            className="inline-block font-sans text-xs uppercase tracking-[0.2em] text-dl-gold border-b border-dl-gold pb-1 hover:text-white hover:border-white transition-all duration-300"
           >
             Book Your Date Early
           </Link>

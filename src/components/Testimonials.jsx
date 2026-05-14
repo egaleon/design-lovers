@@ -38,7 +38,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="bg-[#FBFBFB] py-24 md:py-32">
+    <section className="bg-dl-ivory py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal className="text-center mb-16 md:mb-20">
@@ -54,14 +54,14 @@ export default function Testimonials() {
         <div className="flex justify-end gap-2 mb-6 md:hidden">
           <button
             onClick={() => scroll('left')}
-            className="p-2 border border-dl-coffee/20 text-dl-coffee hover:bg-dl-coffee hover:text-white transition-colors"
+            className="p-2 border border-dl-coffee/20 text-dl-coffee hover:bg-dl-gold hover:text-white transition-colors"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="p-2 border border-dl-coffee/20 text-dl-coffee hover:bg-dl-coffee hover:text-white transition-colors"
+            className="p-2 border border-dl-coffee/20 text-dl-coffee hover:bg-dl-gold hover:text-white transition-colors"
             aria-label="Next testimonial"
           >
             <ChevronRight size={20} />
@@ -83,7 +83,7 @@ export default function Testimonials() {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white p-8 md:p-10 h-full border border-dl-coffee/5 hover:border-dl-gold/20 hover:shadow-lg transition-all duration-500"
+                className="bg-dl-champagne p-8 md:p-10 h-full border border-white/5 hover:border-dl-gold/20 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)] transition-all duration-500"
               >
                 {/* Quote Icon */}
                 <div className="mb-6">

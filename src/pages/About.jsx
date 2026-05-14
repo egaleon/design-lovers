@@ -139,7 +139,7 @@ export default function About() {
       </div>
 
       {/* Brand Values Section */}
-      <div className="bg-dl-coffee py-16 md:py-20">
+      <div className="bg-dl-ivory py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {brandValues.map((value, index) => (
@@ -148,10 +148,10 @@ export default function About() {
                   <div className="inline-flex items-center justify-center w-16 h-16 mb-6 border border-dl-gold/30 rounded-full group-hover:bg-dl-gold/10 transition-colors duration-300">
                     <value.icon size={28} className="text-dl-gold" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-serif text-xl text-dl-ivory mb-2 tracking-wide">
+                  <h3 className="font-serif text-xl text-dl-coffee mb-2 tracking-wide">
                     {value.title}
                   </h3>
-                  <p className="font-sans text-sm text-dl-ivory/60">
+                  <p className="font-sans text-sm text-dl-coffee/60">
                     {value.description}
                   </p>
                 </div>

@@ -51,7 +51,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-dl-coffee text-dl-ivory">
+    <footer className="bg-dl-ivory text-dl-coffee">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -70,7 +70,7 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="font-sans text-sm text-dl-ivory/70 mb-6 leading-relaxed">
+            <p className="font-sans text-sm text-dl-coffee/70 mb-6 leading-relaxed">
               Creating elegant, unforgettable celebrations across Sydney.
             </p>
             {/* Social Icons */}
@@ -81,7 +81,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 border border-dl-ivory/20 text-dl-ivory/70 hover:text-dl-gold hover:border-dl-gold transition-all duration-300"
+                  className="p-2.5 border border-white/20 text-dl-coffee/70 hover:text-dl-gold hover:border-dl-gold transition-all duration-300"
                   aria-label={social.name}
                 >
                   <social.icon size={18} strokeWidth={1.5} />
@@ -92,7 +92,7 @@ export default function Footer() {
                 href="https://pinterest.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 border border-dl-ivory/20 text-dl-ivory/70 hover:text-dl-gold hover:border-dl-gold transition-all duration-300"
+                className="p-2.5 border border-white/20 text-dl-coffee/70 hover:text-dl-gold hover:border-dl-gold transition-all duration-300"
                 aria-label="Pinterest"
               >
                 <svg 
@@ -130,7 +130,7 @@ export default function Footer() {
                   <Link
                     to={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="font-sans text-sm text-dl-ivory/70 hover:text-dl-gold transition-colors duration-300"
+                    className="font-sans text-sm text-dl-coffee/70 hover:text-dl-gold transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -150,7 +150,7 @@ export default function Footer() {
                   <Link
                     to={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="font-sans text-sm text-dl-ivory/70 hover:text-dl-gold transition-colors duration-300"
+                    className="font-sans text-sm text-dl-coffee/70 hover:text-dl-gold transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -165,7 +165,7 @@ export default function Footer() {
               Get in Touch
             </h3>
             <div className="space-y-4 mb-8">
-              <div className="flex items-center justify-center md:justify-start gap-3 text-dl-ivory/70">
+              <div className="flex items-center justify-center md:justify-start gap-3 text-dl-coffee/70">
                 <Mail size={16} strokeWidth={1.5} className="text-dl-gold" />
                 <a 
                   href="mailto:hello@designlovers.com.au"
@@ -174,7 +174,7 @@ export default function Footer() {
                   hello@designlovers.com.au
                 </a>
               </div>
-              <div className="flex items-center justify-center md:justify-start gap-3 text-dl-ivory/70">
+              <div className="flex items-center justify-center md:justify-start gap-3 text-dl-coffee/70">
                 <MapPin size={16} strokeWidth={1.5} className="text-dl-gold" />
                 <span className="font-sans text-sm">
                   Sydney, AU
@@ -183,7 +183,7 @@ export default function Footer() {
             </div>
             <Link
               to="/contact"
-              className="inline-block font-sans text-[10px] uppercase tracking-[0.2em] text-dl-coffee bg-dl-ivory px-6 py-3 hover:bg-dl-gold hover:text-white transition-all duration-300"
+              className="inline-block font-sans text-[10px] uppercase tracking-[0.2em] text-dl-ivory bg-dl-coffee px-6 py-3 hover:bg-dl-gold hover:text-white transition-all duration-300"
             >
               Book a Consultation
             </Link>
@@ -192,15 +192,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-dl-ivory/10">
+      <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-sans text-xs text-dl-ivory/50 text-center md:text-left">
+            <p className="font-sans text-xs text-dl-coffee/50 text-center md:text-left">
               &copy; {new Date().getFullYear()} Design Lovers Events & Styling. All rights reserved.
             </p>
             <Link
               to="#"
-              className="font-sans text-xs text-dl-ivory/50 hover:text-dl-gold transition-colors duration-300"
+              className="font-sans text-xs text-dl-coffee/50 hover:text-dl-gold transition-colors duration-300"
             >
               Privacy Policy
             </Link>

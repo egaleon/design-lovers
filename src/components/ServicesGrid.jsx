@@ -128,7 +128,7 @@ export default function ServicesGrid() {
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Subtle Overlay on Hover */}
-                  <div className="absolute inset-0 bg-dl-coffee/0 group-hover:bg-dl-coffee/10 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
                 </div>
 
                 {/* Content */}
@@ -173,7 +173,7 @@ export default function ServicesGrid() {
             onClick={() => setSelectedService(null)}
           >
             {/* Backdrop with blur */}
-            <div className="absolute inset-0 bg-dl-coffee/60 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
             {/* Modal Content */}
             <motion.div
@@ -231,7 +231,7 @@ export default function ServicesGrid() {
                   <a
                     href="/contact"
                     onClick={() => setSelectedService(null)}
-                    className="inline-block self-start bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-10 py-4 hover:bg-dl-coffee transition-colors duration-300"
+                    className="inline-block self-start bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-10 py-4 hover:bg-white hover:text-dl-ivory transition-colors duration-300"
                   >
                     Book This Service
                   </a>

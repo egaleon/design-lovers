@@ -33,7 +33,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
         />
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-dl-coffee/40" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
@@ -48,7 +48,7 @@ export default function Hero() {
           >
             Creating Beautiful
             <br />
-            <span className="text-dl-champagne">& Memorable</span> Events
+            <span className="text-dl-gold">& Memorable</span> Events
           </motion.h1>
 
           {/* Subtitle */}
@@ -69,7 +69,7 @@ export default function Hero() {
           >
             <button
               onClick={goToContact}
-              className="inline-block bg-dl-gold text-white font-sans text-xs sm:text-sm uppercase tracking-[0.2em] px-10 py-4 border border-dl-gold hover:bg-dl-coffee hover:border-dl-coffee transition-all duration-300 ease-out"
+              className="inline-block bg-dl-gold text-white font-sans text-xs sm:text-sm uppercase tracking-[0.2em] px-10 py-4 border border-dl-gold hover:bg-white hover:border-white hover:text-dl-ivory transition-all duration-300 ease-out"
             >
               Plan Your Event
             </button>

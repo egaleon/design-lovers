@@ -128,7 +128,7 @@ export default function ContactForm() {
               <div className="space-y-6 mb-12">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
-                    <div className="p-2 bg-white/50 rounded-sm">
+                    <div className="p-2 bg-white/10 rounded-sm">
                       <item.icon size={20} className="text-dl-gold" strokeWidth={1.5} />
                     </div>
                     <div>
@@ -148,7 +148,7 @@ export default function ContactForm() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white/50 text-dl-coffee hover:bg-dl-gold hover:text-white transition-all duration-300 rounded-sm"
+                      className="p-3 bg-white/10 text-dl-coffee hover:bg-dl-gold hover:text-white transition-all duration-300 rounded-sm"
                     >
                       <social.icon size={20} strokeWidth={1.5} />
                     </a>
@@ -159,7 +159,7 @@ export default function ContactForm() {
           </ScrollReveal>
 
           {/* Right Column - Form */}
-          <ScrollReveal delay={0.2} className="bg-white py-16 px-8 md:px-12 lg:px-16 flex flex-col justify-center">
+          <ScrollReveal delay={0.2} className="bg-dl-champagne py-16 px-8 md:px-12 lg:px-16 flex flex-col justify-center">
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <h3 className="font-serif text-2xl md:text-3xl text-dl-coffee mb-2 tracking-wide">
                 {isFromPackage ? 'Tell Us About Your Event' : 'Send an Inquiry'}
@@ -172,14 +172,14 @@ export default function ContactForm() {
               </p>
 
               {isSuccess && (
-                <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-sm">
+                <div className="mb-8 p-6 bg-dl-gold/10 border border-dl-gold/30 rounded-sm">
                   <div className="flex items-start gap-3">
-                    <div className="p-1 bg-green-100 rounded-full flex-shrink-0 mt-0.5">
-                      <Check size={18} className="text-green-600" />
+                    <div className="p-1 bg-dl-gold/20 rounded-full flex-shrink-0 mt-0.5">
+                      <Check size={18} className="text-dl-gold" />
                     </div>
                     <div>
-                      <p className="font-serif text-lg text-green-800 mb-1">Thank you!</p>
-                      <p className="font-sans text-sm text-green-700 leading-relaxed">
+                      <p className="font-serif text-lg text-white mb-1">Thank you!</p>
+                      <p className="font-sans text-sm text-dl-coffee/80 leading-relaxed">
                         We have received your inquiry and will provide a personalized proposal within 24 hours.
                       </p>
                     </div>
@@ -313,7 +313,7 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full sm:w-auto bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-12 py-4 flex items-center justify-center gap-3 hover:bg-dl-coffee disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 mt-8"
+                  className="w-full sm:w-auto bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] px-12 py-4 flex items-center justify-center gap-3 hover:bg-white hover:text-dl-ivory disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 mt-8"
                 >
                   {isLoading ? (
                     <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>

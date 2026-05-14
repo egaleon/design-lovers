@@ -53,7 +53,7 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+      <nav className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm shadow-sm shadow-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -83,7 +83,7 @@ export default function Layout({ children }) {
                   key={link.name}
                   to={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-sans text-xs uppercase tracking-widest text-dl-coffee hover:text-dl-gold transition-colors duration-300"
+                  className="font-sans text-xs uppercase tracking-widest text-white hover:text-dl-gold transition-colors duration-300"
                 >
                   {link.name}
                 </Link>
@@ -92,7 +92,7 @@ export default function Layout({ children }) {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-dl-coffee hover:text-dl-gold transition-colors"
+              className="md:hidden p-2 text-white hover:text-dl-gold transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -103,14 +103,14 @@ export default function Layout({ children }) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-dl-champagne/30">
+          <div className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-sm border-t border-dl-gold/20">
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="block font-sans text-xs uppercase tracking-widest text-dl-coffee hover:text-dl-gold transition-colors duration-300 py-2"
+                  className="block font-sans text-xs uppercase tracking-widest text-white hover:text-dl-gold transition-colors duration-300 py-2"
                 >
                   {link.name}
                 </Link>

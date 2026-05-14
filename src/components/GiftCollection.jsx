@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import SeasonalHighlight from './SeasonalHighlight';
@@ -199,10 +200,19 @@ const gifts = [
 
 export default function GiftCollection() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const navigate = useNavigate();
 
   const filteredGifts = activeFilter === 'All' 
     ? gifts 
     : gifts.filter(gift => gift.category === activeFilter);
+
+  const handleInquire = (gift) => {
+    navigate('/contact', {
+      state: {
+        message: `I am interested in learning more about the ${gift.name} (${gift.category}). Please provide more information.`
+      }
+    });
+  };
 
   return (
     <section className="bg-dl-ivory py-24 md:py-32">
@@ -229,8 +239,8 @@ export default function GiftCollection() {
                 font-sans text-[11px] uppercase tracking-[0.15em] px-4 md:px-5 py-2.5
                 transition-all duration-300 border
                 ${activeFilter === category
-                  ? 'bg-dl-coffee text-white border-dl-coffee'
-                  : 'bg-transparent text-dl-coffee border-dl-coffee/20 hover:border-dl-coffee hover:bg-dl-coffee/5'
+                  ? 'bg-dl-gold text-white border-dl-gold'
+                  : 'bg-transparent text-dl-coffee border-dl-coffee/20 hover:border-dl-gold hover:bg-dl-gold/10'
                 }
               `}
             >
@@ -263,8 +273,11 @@ export default function GiftCollection() {
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-dl-coffee/0 group-hover:bg-dl-coffee/50 transition-all duration-500 flex items-center justify-center">
-                    <button className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 bg-white text-dl-coffee font-sans text-[10px] uppercase tracking-[0.2em] px-6 py-3 hover:bg-dl-gold hover:text-white">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-500 flex items-center justify-center">
+                    <button
+                      onClick={() => handleInquire(gift)}
+                      className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 bg-dl-gold text-white font-sans text-[10px] uppercase tracking-[0.2em] px-6 py-3 hover:bg-white hover:text-dl-ivory"
+                    >
                       Inquire Now
                     </button>
                   </div>

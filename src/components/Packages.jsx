@@ -172,14 +172,14 @@ export default function Packages() {
   }, [selectedPackage]);
 
   return (
-    <section className="bg-dl-coffee py-24 md:py-32">
+    <section className="bg-dl-ivory py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal className="text-center mb-16 md:mb-20">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dl-gold mb-6 tracking-wide lg:tracking-wider">
             Curated Packages
           </h2>
-          <p className="font-sans text-dl-ivory/80 max-w-xl mx-auto leading-relaxed">
+          <p className="font-sans text-dl-coffee/80 max-w-xl mx-auto leading-relaxed">
             Choose the perfect package for your celebration. Each option is thoughtfully 
             designed to create an unforgettable experience.
           </p>
@@ -194,8 +194,8 @@ export default function Packages() {
               className={`
                 relative rounded-sm transition-all duration-300
                 ${pkg.featured 
-                  ? 'bg-white py-12 px-6 md:py-16 md:px-8 shadow-2xl z-10' 
-                  : 'bg-dl-coffee border border-dl-ivory/20 py-10 px-6 hover:border-dl-gold/50'
+                  ? 'bg-dl-champagne py-12 px-6 md:py-16 md:px-8 shadow-[0_0_40px_rgba(212,175,55,0.15)] z-10' 
+                  : 'bg-dl-champagne border border-white/10 py-10 px-6 hover:border-dl-gold/50'
                 }
               `}
             >
@@ -211,7 +211,7 @@ export default function Packages() {
               {/* Package Name */}
               <h3 
                 className={`font-serif text-2xl md:text-3xl mb-1 tracking-wide ${
-                  pkg.featured ? 'text-dl-coffee' : 'text-dl-ivory'
+                  pkg.featured ? 'text-dl-coffee' : 'text-dl-coffee'
                 }`}
               >
                 {pkg.name}
@@ -220,7 +220,7 @@ export default function Packages() {
               {/* Subtitle */}
               <p 
                 className={`font-sans text-xs uppercase tracking-wider mb-4 ${
-                  pkg.featured ? 'text-dl-coffee/50' : 'text-dl-ivory/50'
+                  pkg.featured ? 'text-dl-coffee/50' : 'text-dl-coffee/50'
                 }`}
               >
                 {pkg.subtitle}
@@ -229,7 +229,7 @@ export default function Packages() {
               {/* Description */}
               <p 
                 className={`font-sans text-sm mb-6 ${
-                  pkg.featured ? 'text-dl-coffee/60' : 'text-dl-ivory/60'
+                  pkg.featured ? 'text-dl-coffee/60' : 'text-dl-coffee/60'
                 }`}
               >
                 {pkg.description}
@@ -266,7 +266,7 @@ export default function Packages() {
                     />
                     <span 
                       className={`font-sans text-sm leading-relaxed ${
-                        pkg.featured ? 'text-dl-coffee/80' : 'text-dl-ivory/80'
+                        pkg.featured ? 'text-dl-coffee/80' : 'text-dl-coffee/80'
                       }`}
                     >
                       {feature}
@@ -282,7 +282,7 @@ export default function Packages() {
                   w-full font-sans text-xs uppercase tracking-[0.2em] py-4 px-6
                   transition-all duration-300 hover:scale-105
                   ${pkg.featured
-                    ? 'bg-dl-gold text-white hover:bg-dl-coffee'
+                    ? 'bg-dl-gold text-white hover:bg-white hover:text-dl-ivory'
                     : 'border border-dl-gold text-dl-gold hover:bg-dl-gold hover:text-white'
                   }
                 `}
@@ -306,7 +306,7 @@ export default function Packages() {
             onClick={() => setSelectedPackage(null)}
           >
             {/* Backdrop with blur */}
-            <div className="absolute inset-0 bg-dl-coffee/60 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
             {/* Modal Content */}
             <motion.div
@@ -373,7 +373,7 @@ export default function Packages() {
                         } 
                       });
                     }}
-                    className="flex-1 bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] py-4 px-6 hover:bg-dl-coffee transition-all duration-300 hover:scale-105"
+                    className="flex-1 bg-dl-gold text-white font-sans text-xs uppercase tracking-[0.2em] py-4 px-6 hover:bg-white hover:text-dl-ivory transition-all duration-300 hover:scale-105"
                   >
                     Inquire Now
                   </button>

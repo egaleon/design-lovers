@@ -56,12 +56,12 @@ export default function Gifts() {
       <GiftCollection />
 
       {/* CTA Section */}
-      <section className="bg-dl-coffee py-16 md:py-20">
+      <section className="bg-dl-ivory py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-dl-ivory mb-4 tracking-wide">
+          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-dl-coffee mb-4 tracking-wide">
             Looking for Something Custom?
           </h2>
-          <p className="font-sans text-dl-ivory/70 max-w-xl mx-auto mb-8">
+          <p className="font-sans text-dl-coffee/70 max-w-xl mx-auto mb-8">
             We create personalized gift arrangements tailored to your specific needs and preferences.
           </p>
           <Link

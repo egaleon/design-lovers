@@ -144,8 +144,8 @@ export default function Gallery() {
                 font-sans text-xs uppercase tracking-[0.15em] px-6 py-3
                 transition-all duration-300 border
                 ${activeFilter === category
-                  ? 'bg-dl-coffee text-white border-dl-coffee'
-                  : 'bg-transparent text-dl-coffee border-dl-coffee/30 hover:border-dl-coffee hover:bg-dl-coffee/5'
+                  ? 'bg-dl-gold text-white border-dl-gold'
+                  : 'bg-transparent text-dl-coffee border-dl-coffee/30 hover:border-dl-gold hover:bg-dl-gold/10'
                 }
               `}
             >
@@ -178,7 +178,7 @@ export default function Gallery() {
                     className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-dl-coffee/0 group-hover:bg-dl-coffee/40 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500" />
                   {/* Title Label on Hover */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span className="font-serif text-xl md:text-2xl text-white tracking-wide mb-2">
@@ -206,7 +206,7 @@ export default function Gallery() {
             onClick={() => setSelectedImage(null)}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-dl-coffee/95 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
             
             {/* Close Button */}
             <button
@@ -229,7 +229,7 @@ export default function Gallery() {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="max-w-full max-h-[85vh] object-contain shadow-2xl"
+                className="max-w-full max-h-[85vh] object-contain shadow-[0_0_60px_rgba(212,175,55,0.15)]"
               />
               {/* Image Caption */}
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">

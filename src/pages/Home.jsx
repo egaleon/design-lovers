@@ -89,13 +89,13 @@ export default function Home() {
       <Testimonials />
 
       {/* CTA Section - Contact prompt */}
-      <section className="bg-dl-coffee py-20 md:py-28">
+      <section className="bg-dl-ivory py-20 md:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-dl-ivory mb-6 tracking-wide lg:tracking-wider">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-dl-coffee mb-6 tracking-wide lg:tracking-wider">
               Ready to Create Your Perfect Event?
             </h2>
-            <p className="font-sans text-dl-ivory/70 max-w-xl mx-auto mb-10">
+            <p className="font-sans text-dl-coffee/70 max-w-xl mx-auto mb-10">
               Let&apos;s bring your vision to life. Get in touch to start planning your unforgettable celebration.
             </p>
             <Link
